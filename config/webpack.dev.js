@@ -8,11 +8,12 @@ module.exports = webpackMerge(commonConfig, {
     devtool: "source-map",
     
     output: {
-        path: "./dist",
-        filename: "bundle.js",
+        path: "./dev",
+        publicPath: "http://localhost:8080/",
+        filename: "[name].js",
     },
 
     plugins: [
-        new ExtractTextPlugin('app.css')
+        new ExtractTextPlugin('[name].css')
     ],
 });

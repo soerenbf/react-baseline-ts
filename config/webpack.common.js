@@ -1,7 +1,12 @@
+var webpack = require('webpack');
+var HtmlWebpackPlugin = require('html-webpack-plugin');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
-    entry: "./src/main.tsx",
+    entry: {
+        'vendor' : './src/vendor.ts',
+        'app' : "./src/main.tsx"
+    },
 
     resolve: {
         // Add '.ts' and '.tsx' as resolvable extensions.
@@ -16,6 +21,10 @@ module.exports = {
                 loader: "ts-loader" 
             },
             {
+                test: /\.html$/,
+                loader: 'html'
+            },
+            {
                 test: /\.scss$/,
                 loader: ExtractTextPlugin.extract('style', 'css?sourceMap!sass?sourceMap')
             }
@@ -27,12 +36,12 @@ module.exports = {
         ]
     },
 
-    // When importing a module whose path matches one of the following, just
-    // assume a corresponding global variable exists and use that instead.
-    // This is important because it allows us to avoid bundling all of our
-    // dependencies, which allows browsers to cache those libraries between builds.
-    externals: {
-        "react": "React",
-        "react-dom": "ReactDOM"
-    },
+    plugins: [
+        new HtmlWebpackPlugin({
+            template: 'index.html'
+        }),
+        new webpack.optimize.CommonsChunkPlugin({
+            name: ['app', 'vendor']
+        }),
+    ],
 };
