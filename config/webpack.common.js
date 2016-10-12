@@ -2,13 +2,6 @@ var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
     entry: "./src/main.tsx",
-    output: {
-        path: "./dist",
-        filename: "bundle.js",
-    },
-
-    // Enable sourcemaps for debugging webpack's output.
-    devtool: "source-map",
 
     resolve: {
         // Add '.ts' and '.tsx' as resolvable extensions.
@@ -33,10 +26,6 @@ module.exports = {
             { test: /\.js$/, loader: "source-map-loader" }
         ]
     },
-
-    plugins: [
-        new ExtractTextPlugin('app.css')
-    ],
 
     // When importing a module whose path matches one of the following, just
     // assume a corresponding global variable exists and use that instead.

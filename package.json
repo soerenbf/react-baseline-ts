@@ -21,7 +21,8 @@
     "typescript": "^2.0.3",
     "webpack": "^1.13.2",
     "webpack-dashboard": "^0.2.0",
-    "webpack-dev-server": "^1.16.2"
+    "webpack-dev-server": "^1.16.2",
+    "webpack-merge": "^0.14.1"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
