@@ -6,6 +6,6 @@ import { Hello } from './components/hello.component';
 import '../scss/styles.scss';
 
 ReactDOM.render(
-    <Hello compiler="TypeScript" framework="React" />,
+    <Hello compiler="Typescript" framework="React"/>,
     document.getElementById("entry")
 );
