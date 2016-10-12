@@ -28,11 +28,8 @@
     "webpack-merge": "^0.14.1"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "server": "webpack-dashboard -- webpack-dev-server --inline --port 8080",
-    "build": "webpack",
-    "build-prod": "rimraf dist && webpack --config config/webpack.prod.js",
-    "watch": "webpack --watch --progress --profile",
+    "build": "rimraf dist && webpack --config config/webpack.prod.js",
     "start": "npm run server"
   },
   "keywords": [],
